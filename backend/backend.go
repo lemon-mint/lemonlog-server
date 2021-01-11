@@ -12,7 +12,7 @@ type Log struct {
 
 //LogStore : Log storage specification
 type LogStore interface {
-	Put(data Log) error
+	Put(data []*Log) error
 	Del(uuid string) error
-	Get(uuid string) (Log, error)
+	Get(uuid string) (*Log, error)
 }

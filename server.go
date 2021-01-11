@@ -86,8 +86,9 @@ func appendLog(c echo.Context) error {
 		}{false, logRequest{}}, "  ")
 	}
 	t := time.Now().UTC()
+	uuid := genUUID()
 	addQ(&backend.Log{
-		UUID:              genUUID(),
+		UUID:              uuid,
 		TimeStamp:         t.Unix(),
 		HumanReadableTime: t.String(),
 		LogClass:          logreq.Class,
@@ -97,5 +98,6 @@ func appendLog(c echo.Context) error {
 	return c.JSONPretty(200, struct {
 		Success bool       `json:"success"`
 		Request logRequest `json:"request"`
-	}{true, *logreq}, "  ")
+		UUID    string     `json:"uuid"`
+	}{true, *logreq, uuid}, "  ")
 }
