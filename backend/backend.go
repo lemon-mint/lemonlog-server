@@ -2,12 +2,12 @@ package backend
 
 //Log type
 type Log struct {
-	UUID              string
-	TimeStamp         int64
-	HumanReadableTime string
-	LogClass          string
-	Category          string
-	Body              string
+	UUID              string `json:"uuid"`
+	TimeStamp         int64  `json:"timestamp"`
+	HumanReadableTime string `json:"humantime"`
+	LogClass          string `json:"class"`
+	Category          string `json:"category"`
+	Body              string `json:"body"`
 }
 
 //LogStore : Log storage specification
