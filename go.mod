@@ -1,6 +1,6 @@
 module github.com/lemon-mint/lemonlog-server
 
-go 1.15
+go 1.18
 
 require (
 	github.com/allegro/bigcache v1.2.1
